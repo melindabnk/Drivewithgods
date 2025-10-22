@@ -11,15 +11,12 @@ public class KardController : MonoBehaviour
     public InputActionAsset myInputs;
     InputAction moveActions;
     private Rigidbody rb;
-    
 
-    public float maxSpeed = 20f;
-    public float turnSpeed = 100f;
-    public float accel = 1f;
-    public float decel = 1f;
+
+    public StatKartSO stats;
     public float drift;
+    
     float currentSpeed;
-    Vector3 currentVelocity;
     
 
     private void Awake()
@@ -54,15 +51,14 @@ public class KardController : MonoBehaviour
     void RLMovement()
     {
         Vector2 input = moveActions.ReadValue<Vector2>(); 
-
-        float turn = input.x * turnSpeed * Time.fixedDeltaTime;
+        float turn = input.x * stats.turnSpeed * Time.fixedDeltaTime;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, turn, 0f));
 
     }
     void UDMovement(float y)
     {
-        float targetSpeed = y * maxSpeed;
-        float rate = (Mathf.Abs(y) > 0.01f) ? accel : decel;
+        float targetSpeed = y * stats.maxSpeed;
+        float rate = (Mathf.Abs(y) > 0.01f) ? stats.accel : stats.decel;
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, rate * Time.fixedDeltaTime);
 
         rb.MovePosition(rb.position + transform.forward * currentSpeed * Time.fixedDeltaTime);
