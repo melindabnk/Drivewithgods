@@ -90,6 +90,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5614749260302844288}
+    - targetCorrespondingSourceObject: {fileID: 4307878755843485097, guid: 7c9048edd3489c54a875c8bf89774433,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4763032633754872873}
   m_SourcePrefab: {fileID: 100100000, guid: 7c9048edd3489c54a875c8bf89774433, type: 3}
 --- !u!1 &1739578790082617882 stripped
 GameObject:
@@ -133,3 +137,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 5993c422f7c071d45ab4669b375487c1, type: 2}
   finish: {x: -0.5, y: 0.9, z: 518.7}
+--- !u!114 &4763032633754872873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739578790082617882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c9b91df0b6aeb418795bb70b40a9c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
