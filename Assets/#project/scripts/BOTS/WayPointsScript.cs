@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using Unity.MLAgents;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,23 +14,6 @@ public class WayPointsScript : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-        //trouver groupe en allant chercher l'empty par son tag puis en mettant les enfants dans un tranfsorm points
-        GameObject group = GameObject.FindWithTag("waypointgroup");
-        waypoints.Clear();
-        
-        Transform[] points = group.GetComponentsInChildren<Transform>();
-        
-        if (waypoints.Count > 0)
-        {
-            for (int i = 0; i < points.Length; i++)
-            {
-                waypoints.Add(points[i]);
-            }
-        }
-        currentIndex = 0;
-        agent.SetDestination(waypoints[currentIndex].position);
-
-
         
     }
 
@@ -39,11 +23,18 @@ public class WayPointsScript : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance +  0.5f)
         {
             currentIndex++;
-            if (currentIndex >= waypoints.Count) { return; }
-            //agent.SetDestination(waypoints[currentIndex].position);
+            
         }
+        Course();
 
     }
-    
+    void Course()
+    {
+        if (waypoints.Count == 0) { return; }
+        float distanceToWayPoint = Vector3.Distance(waypoints[currentIndex].position, transform.position);
+        agent.SetDestination(waypoints[currentIndex].position);
+    }
+
+           
     
 }
