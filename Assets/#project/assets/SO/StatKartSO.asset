@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc5325ea86fb9b42bef77e30ce0e5c0, type: 3}
   m_Name: StatKartSO
   m_EditorClassIdentifier: 
-  maxSpeed: 25
+  maxSpeed: 35
   turnSpeed: 100
   accel: 15
   decel: 8
