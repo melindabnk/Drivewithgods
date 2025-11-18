@@ -279,7 +279,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2357213050113255360, guid: 7c9048edd3489c54a875c8bf89774433, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1317691532013878182, guid: 7c9048edd3489c54a875c8bf89774433,
@@ -298,7 +299,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4307878755843485097, guid: 7c9048edd3489c54a875c8bf89774433,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4763032633754872873}
+      addedObject: {fileID: 5344721849875202770}
   m_SourcePrefab: {fileID: 100100000, guid: 7c9048edd3489c54a875c8bf89774433, type: 3}
 --- !u!1 &1739578790082617882 stripped
 GameObject:
@@ -340,9 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b092cdcd247fc4d9fcf62ccd265f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 5993c422f7c071d45ab4669b375487c1, type: 2}
   finish: {x: -0.5, y: 0.9, z: 518.7}
---- !u!114 &4763032633754872873
+--- !u!114 &5344721849875202770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -351,15 +351,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1739578790082617882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c9b91df0b6aeb418795bb70b40a9c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ff9037a74eb7bc4fafa0bfd02af836e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 3296984909506353719}
-  - {fileID: 2885829676938167129}
-  - {fileID: 6318242461454048620}
-  - {fileID: 3080932215165020879}
-  - {fileID: 888542705464872501}
+  rb: {fileID: 0}
+  so: {fileID: 0}
+  agent: {fileID: 0}
+  waypoints: []
 --- !u!4 &3577529505303442453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1317691532013878182, guid: 7c9048edd3489c54a875c8bf89774433,

@@ -8,8 +8,8 @@ using UnityEngine.Rendering;
 public class KardController : MonoBehaviour
 {
 
-    public InputActionAsset myInputs;
-    InputAction moveActions;
+    [SerializeField] InputActionAsset myInputs;
+    [SerializeField] InputAction moveActions;
     private Rigidbody rb;
 
 

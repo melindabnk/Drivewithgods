@@ -8,7 +8,7 @@ public class WayPointsScript : MonoBehaviour
 {
     public List<Transform> waypoints = new List<Transform>();
     NavMeshAgent agent;
-    int currentIndex = 0;
+    private int currentIndex = 0;
    
     void Start()
     {

@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc5325ea86fb9b42bef77e30ce0e5c0, type: 3}
-  m_Name: StatKartSO
+  m_Script: {fileID: 11500000, guid: b0680257574868049947c4e6f2064d65, type: 3}
+  m_Name: chillIA
   m_EditorClassIdentifier: 
   maxSpeed: 50
   turnSpeed: 150
-  accel: 45
+  accel: 25
   decel: 20
-  boostSpeed: 300

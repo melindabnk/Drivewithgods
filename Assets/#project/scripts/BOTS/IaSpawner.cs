@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.AI;
-using static IaControl;
+
 
 public class iaSpawner : MonoBehaviour
 {
-    public int maxIaPlayer = 1;
-    public BoxCollider bc;
-    public GameObject gb;
+    [SerializeField] int maxIaPlayer = 1;
+    [SerializeField] BoxCollider bc;
+    [SerializeField] GameObject gb;
     
 
     void Awake()
@@ -28,13 +27,13 @@ public class iaSpawner : MonoBehaviour
             Instantiate(gb,RandomPosBox(bc),Quaternion.identity);
         }
     }
-    Vector3 RandomPosBox(BoxCollider box)
+    Vector3 RandomPosBox(BoxCollider bc)
     {
         Vector3 local = new Vector3(
-        Random.Range(-box.size.x / 2, box.size.x / 2),
-        Random.Range(-box.size.y / 2, box.size.y / 2),
-        Random.Range(-box.size.z / 2, box.size.z / 2)
+        Random.Range(-bc.size.x / 2, bc.size.x / 2),
+        Random.Range(-bc.size.y / 2, bc.size.y / 2),
+        Random.Range(-bc.size.z / 2, bc.size.z / 2)
     );
-        return box.transform.TransformPoint(box.center + local);
+        return bc.transform.TransformPoint(bc.center + local);
     }
 }

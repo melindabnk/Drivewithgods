@@ -1,22 +1,17 @@
 
 using System.Collections;
-using System.Collections.Generic;
-using Unity.MLAgents;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering;
 
 
-public class IaControl : MonoBehaviour
+public class NavMesh : MonoBehaviour
 {
-    public StatKartSO stats;
 
-    NavMeshAgent iaplayer;
-    public Vector3 finish;
-   // public ListBuffe<Transform> wayPoints = new List<Transform>();
+    [Header("composants")]
+    [SerializeField] NavMeshAgent iaplayer;
+    [SerializeField] Vector3 finish;
+    [SerializeField] IAProfile so;
     
-   
-
 
     void Awake()
     {
@@ -40,7 +35,7 @@ public class IaControl : MonoBehaviour
     }
     public IEnumerator Boost()
     {
-        float baseSpeed = stats.maxSpeed;
+        float baseSpeed = so.maxSpeed; ;
         while (true)
         {
             iaplayer.speed = baseSpeed * 3f;
@@ -52,8 +47,8 @@ public class IaControl : MonoBehaviour
             yield return new WaitForSeconds(interval);
         }
     }
-    
-   
+
+
 }
 #region GuardCode
 
