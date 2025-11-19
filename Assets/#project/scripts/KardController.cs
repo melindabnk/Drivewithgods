@@ -15,8 +15,10 @@ public class KardController : MonoBehaviour
 
     public StatKartSO stats;
     public float drift;
+    public RaceState state;
     
     float currentSpeed;
+    bool canMove = false;
     
 
     private void Awake()
@@ -43,6 +45,7 @@ public class KardController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove) return;
         Vector2 input = moveActions.ReadValue<Vector2>();
         RLMovement();
         UDMovement(input.y);
@@ -63,7 +66,15 @@ public class KardController : MonoBehaviour
 
         rb.MovePosition(rb.position + transform.forward * currentSpeed * Time.fixedDeltaTime);
     }
-    
+    public void controlOn()
+    {
+        canMove = true;
+    }
+    public void controlOff()
+    {
+        canMove = false;
+    }
+
 
 
 }

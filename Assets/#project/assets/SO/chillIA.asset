@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0680257574868049947c4e6f2064d65, type: 3}
   m_Name: chillIA
   m_EditorClassIdentifier: 
-  maxSpeed: 50
+  maxSpeed: 46.5
   turnSpeed: 150
   accel: 25
   decel: 20

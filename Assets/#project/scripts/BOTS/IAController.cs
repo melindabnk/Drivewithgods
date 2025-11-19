@@ -13,6 +13,7 @@ public class IAController : MonoBehaviour
     [Header("variables")]
     private int currentIndex = 0;
     [SerializeField] List<Transform> waypoints = new List<Transform>();
+    bool canMove = false;
 
     private void Awake()
     {
@@ -27,18 +28,20 @@ public class IAController : MonoBehaviour
         agent.acceleration = so.accel;
         agent.stoppingDistance = so.decel;
 
+
     }
 
     void Update()
     {
         
+
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 0.5f)
         {
             currentIndex++;
 
         }
         Course();
-        MoveToCurrentWaypoint();
+      
 
     }
     void Course()
@@ -47,12 +50,14 @@ public class IAController : MonoBehaviour
         float distanceToWayPoint = Vector3.Distance(waypoints[currentIndex].position, transform.position);
         agent.SetDestination(waypoints[currentIndex].position);
     }
-    void MoveToCurrentWaypoint()
+    public void controlOn()
     {
-        Transform target = waypoints[currentIndex];
-        if (target == null) return;
-
-        agent.SetDestination(target.position);
+        canMove = true;
     }
+    public void controlOff()
+    {
+        canMove = false;
+    }
+
 }
 
