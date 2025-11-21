@@ -7,21 +7,18 @@ public class RaceManager : MonoBehaviour
 {
     #region commentaires
     /*
-   
     2. nombre de ia et player
     3. enregistre quand le nbr de joueur a été dans la box finish pour terminer course
-    4. envoyer le signal de depart 
-    5.
-
-     
+    
      */
     #endregion
 
     public RaceState state;
-   
     public GameObject textMeshPro;
+    public GameObject startText;
     KardController kc;
     IAController ic;
+
 
 
 
@@ -29,16 +26,32 @@ public class RaceManager : MonoBehaviour
     {
         textMeshPro.SetActive(false);
         kc = FindAnyObjectByType<KardController>();
+        ic = FindAnyObjectByType<IAController>();   
+       
         state = RaceState.waiting;
         kc.controlOff();
-        StartRace();
+        ic.controlOff();
+        StartCoroutine(startTextCoroutine());
+      
+
+
     }
 
     
 
     void Update()
     {
+
+    }
+    IEnumerator startTextCoroutine()
+    {
         
+        startText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        startText.SetActive(false);
+       
+        StartRace();
+
     }
 
     public void StartRace()
@@ -47,16 +60,14 @@ public class RaceManager : MonoBehaviour
         kc.controlOn();
         ic.controlOn();
         textMeshPro.SetActive(false);
-        Debug.Log("StartRace (RaceManager)");
     }
 
     public void FinishRace()
     {
         state = RaceState.finish;
         kc.controlOff();
-        ic.controlOff();
+        //ic.controlOff();
         textMeshPro.SetActive(true);
-        Debug.Log("FinishRace (RaceManager)");
     }
     private void OnCollisionEnter(Collision collision)
     {

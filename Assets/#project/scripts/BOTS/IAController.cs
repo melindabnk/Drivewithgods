@@ -13,16 +13,18 @@ public class IAController : MonoBehaviour
     [Header("variables")]
     private int currentIndex = 0;
     [SerializeField] List<Transform> waypoints = new List<Transform>();
-    bool canMove = false;
+   
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
 
     void Start()
     {
+        controlOff();
         agent.speed = so.maxSpeed;
         agent.angularSpeed = so.turnSpeed;
         agent.acceleration = so.accel;
@@ -33,11 +35,12 @@ public class IAController : MonoBehaviour
 
     void Update()
     {
-        
-
+        controlOn();
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 0.5f)
         {
             currentIndex++;
+            if (currentIndex >= waypoints.Count)
+                currentIndex = 0;
 
         }
         Course();
@@ -52,11 +55,11 @@ public class IAController : MonoBehaviour
     }
     public void controlOn()
     {
-        canMove = true;
+        agent.isStopped = false;
     }
     public void controlOff()
     {
-        canMove = false;
+        agent.isStopped = true;
     }
 
 }

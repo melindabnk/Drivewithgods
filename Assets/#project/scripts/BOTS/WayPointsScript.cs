@@ -26,6 +26,7 @@ public class WayPointsScript : MonoBehaviour
             
         }
         Course();
+       
 
     }
     void Course()
@@ -35,6 +36,9 @@ public class WayPointsScript : MonoBehaviour
         agent.SetDestination(waypoints[currentIndex].position);
     }
 
-           
-    
+   
+
+
+
+
 }

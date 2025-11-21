@@ -7,16 +7,15 @@ using UnityEngine.Rendering;
 
 public class KardController : MonoBehaviour
 {
-
+    [Header("objects")]
     [SerializeField] InputActionAsset myInputs;
     [SerializeField] InputAction moveActions;
     private Rigidbody rb;
-
-
     public StatKartSO stats;
-    public float drift;
     public RaceState state;
-    
+
+    [Header("variable")]
+    public float drift;
     float currentSpeed;
     bool canMove = false;
     
@@ -45,7 +44,7 @@ public class KardController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!canMove) return;
+        if (!canMove) { return; }
         Vector2 input = moveActions.ReadValue<Vector2>();
         RLMovement();
         UDMovement(input.y);
